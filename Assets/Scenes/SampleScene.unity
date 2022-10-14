@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.57339144, g: 0.5887409, b: 0.6045664, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -239,6 +239,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1058119850}
   m_RootOrder: 0
@@ -255,38 +256,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1589dc96f27cd74bab92a3c1156f866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fig_1_final_2_2: {fileID: 2800000, guid: a060c54200be1a04baf1cee9acfbb90e, type: 3}
-  fig_1_final_30: {fileID: 2800000, guid: 13399fd2117c4ad409af872739df8b69, type: 3}
-  fig_1_final_60: {fileID: 2800000, guid: efc95143e92e307419feab1e5778c9db, type: 3}
-  fig_1_final_90: {fileID: 2800000, guid: 964f9bb3a3eafb2439b25d2df2bf3cb3, type: 3}
-  fig_1_final_whole: {fileID: 2800000, guid: d33d93b287fabca4abeb9ce446121f0e, type: 3}
-  fig_2_final_2_2: {fileID: 2800000, guid: 57f63547340b4fd4182eddae7cb3bd98, type: 3}
-  fig_2_final_30: {fileID: 2800000, guid: ce602a7dc3530c8499ff63ea856016ea, type: 3}
-  fig_2_final_60: {fileID: 2800000, guid: 32f47693122ef4b4d8ec1b5820231c46, type: 3}
-  fig_2_final_90: {fileID: 2800000, guid: 5befbc18a6c59dd438d20b487e904b68, type: 3}
-  fig_2_final_whole: {fileID: 2800000, guid: ed98e9babf4944240bedd6fb415eb0e1, type: 3}
-  fig_3_final_2_2: {fileID: 2800000, guid: f2eb84b497f71e94fb05eb8e54553c80, type: 3}
-  fig_3_final_30: {fileID: 2800000, guid: 3720f7d21fa058847b4d2016a91f7d40, type: 3}
-  fig_3_final_60: {fileID: 2800000, guid: f8407b4b97714bf499b15420f13ed756, type: 3}
-  fig_3_final_90: {fileID: 2800000, guid: 6ccf39eb339f2e541b87535b0188eeec, type: 3}
-  fig_3_final_whole: {fileID: 2800000, guid: 10cc19ddaed50fc4a807707b041ed5e9, type: 3}
-  fig_4_final_2_2: {fileID: 2800000, guid: f96b1c813741d724990e49bf63994255, type: 3}
-  fig_4_final_30: {fileID: 2800000, guid: a138369b13c375f449d8993dba021de8, type: 3}
-  fig_4_final_60: {fileID: 2800000, guid: 35fec54e314d63a47807389c51e8da69, type: 3}
-  fig_4_final_90: {fileID: 2800000, guid: b85e26ed1cbb60248ad5761a991fd756, type: 3}
-  fig_4_final_whole: {fileID: 2800000, guid: a10b8efbaa3fb254ba426522472b28f9, type: 3}
-  fig_5_final_2_2: {fileID: 2800000, guid: c5ca40240c7d8364a8d5bb208e8bb9b3, type: 3}
-  fig_5_final_30: {fileID: 2800000, guid: f69d1db552707224687f3d073aa820e5, type: 3}
-  fig_5_final_60: {fileID: 2800000, guid: 8922088347316f24891e548c26858e90, type: 3}
-  fig_5_final_90: {fileID: 2800000, guid: f215eae4d643dab429471eba9985475f, type: 3}
-  fig_5_final_whole: {fileID: 2800000, guid: 7ce1edb4bba7c2444a610a90be41c36a, type: 3}
-  fig_6_final_2_2: {fileID: 2800000, guid: 0887f505618bde84c94f641c94bf9f34, type: 3}
-  fig_6_final_30: {fileID: 2800000, guid: 971d67df7df8f6344870dfe4aae6c496, type: 3}
-  fig_6_final_60: {fileID: 2800000, guid: 3b276a4be4092224b96b44fb1003466e, type: 3}
-  fig_6_final_90: {fileID: 2800000, guid: 7f4302076b618f94b95dce1663011745, type: 3}
-  fig_6_final_whole: {fileID: 2800000, guid: e129fa8e9c5c8dd43b8f376085d9c7c5, type: 3}
+  fig_1_name: Room
+  fig_1_oneoff: {fileID: 2800000, guid: a060c54200be1a04baf1cee9acfbb90e, type: 3}
+  fig_1_percolumn: {fileID: 2800000, guid: d33d93b287fabca4abeb9ce446121f0e, type: 3}
+  fig_2_name: Mesh
+  fig_2_oneoff: {fileID: 2800000, guid: 4d15d300ad98c06a297ea8aa02ec1eda, type: 3}
+  fig_2_percolumn: {fileID: 2800000, guid: d33d93b287fabca4abeb9ce446121f0e, type: 3}
+  fig_3_name: Lion
+  fig_3_oneoff: {fileID: 2800000, guid: f2eb84b497f71e94fb05eb8e54553c80, type: 3}
+  fig_3_percolumn: {fileID: 2800000, guid: d33d93b287fabca4abeb9ce446121f0e, type: 3}
+  fig_4_name: Grass
+  fig_4_oneoff: {fileID: 2800000, guid: 9b998b74dca88358f8d55787fac064bd, type: 3}
+  fig_4_percolumn: {fileID: 2800000, guid: d33d93b287fabca4abeb9ce446121f0e, type: 3}
+  fig_5_name: Stone
+  fig_5_oneoff: {fileID: 2800000, guid: c5ca40240c7d8364a8d5bb208e8bb9b3, type: 3}
+  fig_5_percolumn: {fileID: 2800000, guid: d33d93b287fabca4abeb9ce446121f0e, type: 3}
+  fig_6_name: Flowerbed
+  fig_6_oneoff: {fileID: 2800000, guid: f2330b85614bf991f8d02dbcee34a102, type: 3}
+  fig_6_percolumn: {fileID: 2800000, guid: d33d93b287fabca4abeb9ce446121f0e, type: 3}
   mat: {fileID: 2100000, guid: c1367900c296f33429e2e3016671005f, type: 2}
-  file_name: aaaaaaaaaaaaa
 --- !u!102 &194919572
 TextMesh:
   serializedVersion: 3
@@ -320,6 +308,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -548,6 +537,7 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &705507995
@@ -560,6 +550,7 @@ Transform:
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -626,6 +617,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -663,6 +655,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1058119850}
   m_RootOrder: 1
@@ -700,6 +693,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

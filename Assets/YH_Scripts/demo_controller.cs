@@ -8,42 +8,35 @@ using System.Threading.Tasks;
 
 public class demo_controller : MonoBehaviour
 {
-    public Texture2D fig_1_final_2_2;
-    public Texture2D fig_1_final_30;
-    public Texture2D fig_1_final_60;
-    public Texture2D fig_1_final_90;
-    public Texture2D fig_1_final_whole;
+    // !!!IMPORTANT!!!: if you add a new test group, you need edit this number
+    private const int total_fig_groups = 6;
 
-    public Texture2D fig_2_final_2_2;
-    public Texture2D fig_2_final_30;
-    public Texture2D fig_2_final_60;
-    public Texture2D fig_2_final_90;
-    public Texture2D fig_2_final_whole;
+    // !!!IMPORTANT!!!: if you add a new test group, you need create your new group name/oneoff/percolumn
+    public String    fig_1_name;
+    public Texture2D fig_1_oneoff;
+    public Texture2D fig_1_percolumn;
 
-    public Texture2D fig_3_final_2_2;
-    public Texture2D fig_3_final_30;
-    public Texture2D fig_3_final_60;
-    public Texture2D fig_3_final_90;
-    public Texture2D fig_3_final_whole;
+    public String    fig_2_name;
+    public Texture2D fig_2_oneoff;
+    public Texture2D fig_2_percolumn;
 
-    public Texture2D fig_4_final_2_2;
-    public Texture2D fig_4_final_30;
-    public Texture2D fig_4_final_60;
-    public Texture2D fig_4_final_90;
-    public Texture2D fig_4_final_whole;
+    public String    fig_3_name;
+    public Texture2D fig_3_oneoff;
+    public Texture2D fig_3_percolumn;
 
-    public Texture2D fig_5_final_2_2;
-    public Texture2D fig_5_final_30;
-    public Texture2D fig_5_final_60;
-    public Texture2D fig_5_final_90;
-    public Texture2D fig_5_final_whole;
+    public String    fig_4_name;
+    public Texture2D fig_4_oneoff;
+    public Texture2D fig_4_percolumn;
 
-    public Texture2D fig_6_final_2_2;
-    public Texture2D fig_6_final_30;
-    public Texture2D fig_6_final_60;
-    public Texture2D fig_6_final_90;
-    public Texture2D fig_6_final_whole;
+    public String    fig_5_name;
+    public Texture2D fig_5_oneoff;
+    public Texture2D fig_5_percolumn;
 
+    public String    fig_6_name;
+    public Texture2D fig_6_oneoff;
+    public Texture2D fig_6_percolumn;
+
+    // !!!IMPORTANT!!!: if you add a new test group, you need create add the new Dictionary
     public Dictionary<int, Texture2D> fig1;
     public Dictionary<int, Texture2D> fig2;
     public Dictionary<int, Texture2D> fig3;
@@ -52,65 +45,49 @@ public class demo_controller : MonoBehaviour
     public Dictionary<int, Texture2D> fig6;
 
     public Dictionary<int, Dictionary<int, Texture2D>> schema;
-    private int fig_number;
+    public Dictionary<int, String> schema_fig_group_name;
+    private int current_group_number;
     private int current_image_number;
 
     public Material mat;
 
-    public String file_name;
-
-
-    // Start is called before the first frame update
     void Start()
     {
-        fig_number = 1;
+        current_group_number = 1;
         current_image_number = 1;
 
+        // !!!IMPORTANT!!!: if you add a new test group, initialize it here
         fig1 = new Dictionary<int, Texture2D>();
         fig2 = new Dictionary<int, Texture2D>();
         fig3 = new Dictionary<int, Texture2D>();
         fig4 = new Dictionary<int, Texture2D>();
         fig5 = new Dictionary<int, Texture2D>();
         fig6 = new Dictionary<int, Texture2D>();
+
         schema = new Dictionary<int, Dictionary<int, Texture2D>>();
+        schema_fig_group_name = new Dictionary<int, String>();
 
         // schema
-        fig1.Add(1, fig_1_final_2_2);
-        fig1.Add(2, fig_1_final_30);
-        fig1.Add(3, fig_1_final_60);
-        fig1.Add(4, fig_1_final_90);
-        fig1.Add(5, fig_1_final_whole);
+        // !!!IMPORTANT!!!: if you add a new test group, add the two picture to the Dictionary, 1 MUST be oneoff and 2 MUST be per_column
+        fig1.Add(1, fig_1_oneoff);
+        fig1.Add(2, fig_1_percolumn);
 
-        fig2.Add(1, fig_2_final_2_2);
-        fig2.Add(2, fig_2_final_30);
-        fig2.Add(3, fig_2_final_60);
-        fig2.Add(4, fig_2_final_90);
-        fig2.Add(5, fig_2_final_whole);
+        fig2.Add(1, fig_2_oneoff);
+        fig2.Add(2, fig_2_percolumn);
 
-        fig3.Add(1, fig_3_final_2_2);
-        fig3.Add(2, fig_3_final_30);
-        fig3.Add(3, fig_3_final_60);
-        fig3.Add(4, fig_3_final_90);
-        fig3.Add(5, fig_3_final_whole);
+        fig3.Add(1, fig_3_oneoff);
+        fig3.Add(2, fig_3_percolumn);
 
-        fig4.Add(1, fig_4_final_2_2);
-        fig4.Add(2, fig_4_final_30);
-        fig4.Add(3, fig_4_final_60);
-        fig4.Add(4, fig_4_final_90);
-        fig4.Add(5, fig_4_final_whole);
+        fig4.Add(1, fig_4_oneoff);
+        fig4.Add(2, fig_4_percolumn);
 
-        fig5.Add(1, fig_5_final_2_2);
-        fig5.Add(2, fig_5_final_30);
-        fig5.Add(3, fig_5_final_60);
-        fig5.Add(4, fig_5_final_90);
-        fig5.Add(5, fig_5_final_whole);
+        fig5.Add(1, fig_5_oneoff);
+        fig5.Add(2, fig_5_percolumn);
 
-        fig6.Add(1, fig_6_final_2_2);
-        fig6.Add(2, fig_6_final_30);
-        fig6.Add(3, fig_6_final_60);
-        fig6.Add(4, fig_6_final_90);
-        fig6.Add(5, fig_6_final_whole);
+        fig6.Add(1, fig_6_oneoff);
+        fig6.Add(2, fig_6_percolumn);
 
+        // !!!IMPORTANT!!!: if you add a new test group, add it to the schema here
         schema.Add(1, fig1);
         schema.Add(2, fig2);
         schema.Add(3, fig3);
@@ -118,24 +95,37 @@ public class demo_controller : MonoBehaviour
         schema.Add(5, fig5);
         schema.Add(6, fig6);
 
+        // !!!IMPORTANT!!!: if you add a new test group, add the name to the name sheet here
+        schema_fig_group_name.Add(1, fig_1_name);
+        schema_fig_group_name.Add(2, fig_2_name);
+        schema_fig_group_name.Add(3, fig_3_name);
+        schema_fig_group_name.Add(4, fig_4_name);
+        schema_fig_group_name.Add(5, fig_5_name);
+        schema_fig_group_name.Add(6, fig_6_name);
+
         right_key_pressed = false;
         left_key_pressed = false;
 
         generate_random_list();
+        generate_random_group_order();
 
-       // clean_save_data();
-
-        mat.mainTexture = schema[fig_number][random_to_sorted[current_image_number]];
+        mat.mainTexture = schema[random_to_sorted_for_group_order[current_group_number]][random_to_sorted[current_image_number]];
         RenderSettings.skybox = mat;
 
     }
 
-    // Update is called once per frame
+
 
     private bool right_key_pressed;
     private bool left_key_pressed;
 
-    private Dictionary<int, int> random_to_sorted; // key: random index, value: image index
+    // key: random index, value: image index
+    // note in 14th Oct: it is used for each picture in a group
+    private Dictionary<int, int> random_to_sorted;
+
+    // key: random index, value: group index
+    // note in 14th Oct: it is used for group
+    private Dictionary<int, int> random_to_sorted_for_group_order;
 
     void generate_random_list()
     {
@@ -144,43 +134,54 @@ public class demo_controller : MonoBehaviour
 
         random_list.Add(1);
         random_list.Add(2);
-        random_list.Add(3);
-        random_list.Add(4);
-        random_list.Add(5);
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 2; i++)
         {
-            int random_index = UnityEngine.Random.Range(0, 5 - i);
+            int random_index = UnityEngine.Random.Range(0, 2 - i);
             int temp = random_list[i];
             random_list[i] = random_list[i + random_index];
             random_list[i + random_index] = temp;
 
         }
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 2; i++)
         {
             random_to_sorted.Add(random_list[i], i + 1);
         }
-        // String debug_string = random_list[0].ToString() + " " + random_list[1].ToString() + " " + random_list[2].ToString() + " " + random_list[3].ToString() + " " + random_list[4].ToString();
-        // Debug.Log(debug_string);
+    }
+
+    void generate_random_group_order()
+    {
+        List<int> random_list = new List<int>();
+        random_to_sorted_for_group_order = new Dictionary<int, int>();
+
+        for (int i = 1; i <= total_fig_groups; i++) {
+            random_list.Add(i);
+        }
+
+        for (int i = 0; i < total_fig_groups; i++) {
+            int random_index = UnityEngine.Random.Range(0, total_fig_groups - i);
+            int temp = random_list[i];
+            random_list[i] = random_list[i + random_index];
+            random_list[i + random_index] = temp;
+        }
+
+        for (int i = 0; i < total_fig_groups; i++)
+        {
+            random_to_sorted_for_group_order.Add(random_list[i], i + 1);
+        }
     }
 
     void Update()
     {
-        //if (Input.GetKey(KeyCode.UpArrow))
-        //{
-            
-       // }
-
-        // if (Input.GetKey(KeyCode.DownArrow))
 
         if (Input.GetKey(KeyCode.RightArrow) && !right_key_pressed)
         {
             current_image_number++;
-            current_image_number = Mathf.Clamp(current_image_number, 1, 5);
+            current_image_number = Mathf.Clamp(current_image_number, 1, 2);
 
 
-            mat.mainTexture = schema[fig_number][random_to_sorted[current_image_number]];
+            mat.mainTexture = schema[random_to_sorted_for_group_order[current_group_number]][random_to_sorted[current_image_number]];
             RenderSettings.skybox = mat;
             right_key_pressed = true;
         }
@@ -193,10 +194,10 @@ public class demo_controller : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow) && !left_key_pressed)
         {
             current_image_number--;
-            current_image_number = Mathf.Clamp(current_image_number, 1, 5);
+            current_image_number = Mathf.Clamp(current_image_number, 1, 2);
 
 
-            mat.mainTexture = schema[fig_number][random_to_sorted[current_image_number]];
+            mat.mainTexture = schema[random_to_sorted_for_group_order[current_group_number]][random_to_sorted[current_image_number]];
             RenderSettings.skybox = mat;
             left_key_pressed = true;
         }
@@ -208,100 +209,30 @@ public class demo_controller : MonoBehaviour
    
     }
 
-    /*
-    private int rank_A;
-    private int rank_B;
-    private int rank_C;
-    private int rank_D;
-    private int rank_E;
-    private int best_index;
-    private int worst_index;
-    private bool is_good;
-
-    void clean_save_data()
-    {
-        rank_A = -1;
-        rank_B = -1;
-        rank_C = -1;
-        rank_D = -1;
-        rank_E = -1;
-
-        best_index = -1;
-        worst_index = -1;
-        is_good = false;
-    }
-    */
-
     void OnGUI()
     {
         if (GUILayout.Button("Next Scene"))
         {
-            // first: save
-            // String file_name = DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss");
-            String saving_file_name = file_name + "_" + fig_number.ToString() + ".txt";
-
-            String content = "";// =  + ",";
-            for (int i = 1; i <= 5; i++)
-            {
-                content += i.ToString() + "->" + random_to_sorted[i].ToString() + ",";
-            }
-
-
-            /*
-            String content = fig_number.ToString() + ",";
-            content += (is_good ? "1" : "0") + ",";
-            content += best_index + ",";
-            content += worst_index + ",";
-            content += random_to_sorted[rank_A].ToString() + ",";
-            content += random_to_sorted[rank_B].ToString() + ",";
-            content += random_to_sorted[rank_C].ToString() + ",";
-            content += random_to_sorted[rank_D].ToString() + ",";
-            content += random_to_sorted[rank_E].ToString();
-            */
-
-            StreamWriter writer = new StreamWriter(saving_file_name, true);
-            writer.WriteLine(content);
-            writer.Close();
-
-
-            // then clean data and re-generate random list
-
+            // re-generate random list and go to next scene
             generate_random_list();
+            if (current_group_number <= total_fig_groups) current_group_number++;
 
-            // finally go to next scene
-            if (fig_number <= 6) fig_number++;
-            if (fig_number == 7) fig_number = 1;
+            // if current scene is the final one and jump the the new rounds, we need to generate a new group order for the new tester
+            if (current_group_number == (total_fig_groups + 1)) {
+                generate_random_group_order();
+                current_group_number = 1;
+            }
 
             current_image_number = 1;
 
-            mat.mainTexture = schema[fig_number][random_to_sorted[current_image_number]];
+            mat.mainTexture = schema[random_to_sorted_for_group_order[current_group_number]][random_to_sorted[current_image_number]];
             RenderSettings.skybox = mat;
         }
 
-        //if ((GUILayout.Button("is best?"))) { best_index = current_image_number; }
-        //if ((GUILayout.Button("is worst?"))) { worst_index = current_image_number; }
-        //if (!is_good && GUILayout.Button("is good?")) { is_good = true;}
-        //if (is_good && GUILayout.Button("is bad")) { is_good = false; }
-        //if (rank_A == -1 && GUILayout.Button("set rank A")) { rank_A = current_image_number; }
-        //if (rank_B == -1 && GUILayout.Button("set rank B")) { rank_B = current_image_number; }
-        //if (rank_C == -1 && GUILayout.Button("set rank C")) { rank_C = current_image_number; }
-        //if (rank_D == -1 && GUILayout.Button("set rank D")) { rank_D = current_image_number; }
-        //if (rank_E == -1 && GUILayout.Button("set rank E")) { rank_E = current_image_number; }
-        //if (GUILayout.Button("reset rank")) { rank_A = -1; rank_B = -1; rank_C = -1; rank_D = -1; rank_E = -1; }
+        GUI.Box(new Rect(Screen.width - 300, 0, 300, 30), current_group_number.ToString() + "/" + total_fig_groups.ToString() +" Scene name: " + schema_fig_group_name[random_to_sorted_for_group_order[current_group_number]]);
+        GUI.Box(new Rect(Screen.width - 300, 30, 300, 30), "Image index: [" + current_image_number.ToString() + "] Read image: [" + (random_to_sorted[current_image_number] == 1 ? "oneoff]" : "percolumn]"));
 
-        //GUI.Box(new Rect(0, Screen.height / 2     , 100, 20), "is good? " + (is_good ? "Yes" : "No"));
-        //GUI.Box(new Rect(0, Screen.height / 2 + 20, 100, 20), "rank_A index : "  + rank_A.ToString());
-        //GUI.Box(new Rect(0, Screen.height / 2 + 40, 100, 20), "rank_B index : " + rank_B.ToString());
-        //GUI.Box(new Rect(0, Screen.height / 2 + 60, 100, 20), "rank_C index : " + rank_C.ToString());
-        //GUI.Box(new Rect(0, Screen.height / 2 + 80, 100, 20), "rank_D index : " + rank_D.ToString());
-        //GUI.Box(new Rect(0, Screen.height / 2 + 100, 100, 20), "rank_E index : " + rank_E.ToString());
-        //GUI.Box(new Rect(0, Screen.height / 2 + 120, 100, 20), "best index : " + best_index.ToString());
-        //GUI.Box(new Rect(0, Screen.height / 2 + 140, 100, 20), "worst index : " + worst_index.ToString());
-
-
-        GUI.Box(new Rect(Screen.width - 100, 0, 100, 20), fig_number.ToString() + " index:" + current_image_number.ToString() + " real:" + random_to_sorted[current_image_number].ToString());
-
-        gameObject.GetComponent<TextMesh>().text = fig_number.ToString() + "-" + current_image_number.ToString();
+        gameObject.GetComponent<TextMesh>().text = current_group_number.ToString() + "-" + current_image_number.ToString();
     }
 
 
